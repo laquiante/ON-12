@@ -1,0 +1,28 @@
+!
+frr version 7.4+cl4.2.1u1
+frr defaults datacenter
+hostname leaf2
+log syslog informational
+service integrated-vtysh-config
+!
+vrf VRFA
+ vni 4001
+ exit-vrf
+!
+router bgp 65102
+ neighbor swp1 interface remote-as external
+ neighbor swp2 interface remote-as external
+ !
+ address-family ipv4 unicast
+  network 172.16.28.0/24
+  network 172.16.29.0/24
+  network 172.16.100.2/32
+ exit-address-family
+ !
+ address-family l2vpn evpn
+  neighbor swp1 activate
+  neighbor swp2 activate
+  advertise-all-vni
+ exit-address-family
+!
+line 
