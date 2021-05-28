@@ -56,7 +56,7 @@
         src: /home/cumulus/ON-12/practice-02-host-4
         dest: /etc/network/interfaces
     # aktivieren
-    - name: activate changes on Hos4
+    - name: activate changes on Host4
       shell: /sbin/ifreload -a
 
 # #################################################################
