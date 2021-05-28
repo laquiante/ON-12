@@ -125,7 +125,7 @@
   tasks:
     - name: clean up
       copy:
-        src: /home/cumulus/ON-12/cleanup-03-leaf-2-frr
+        src: /home/cumulus/ON-12/cleanup-leaf-2-frr
         dest: /etc/frr/frr.conf
       notify:
         - frr_reload
