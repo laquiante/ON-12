@@ -187,7 +187,7 @@
   tasks:
     - name: IF clean up
       copy: 
-        src: /home/cumulus/ON-12/spine-4-if
+        src: /home/cumulus/ON-12/practice-02-spine-4-if
         dest: /etc/network/interfaces
     # aktivieren
     - name: activate changes on Spine4
