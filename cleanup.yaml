@@ -7,7 +7,7 @@
   tasks:
     - name: IPv4 Address
       copy: 
-        src: /home/cumulus/ON-12/host1
+        src: /home/cumulus/ON-12/practice-02-host-1
         dest: /etc/network/interfaces
     # aktivieren
     - name: activate changes on Host1
@@ -22,7 +22,7 @@
   tasks:
     - name: IPv4 Address
       copy: 
-        src: /home/cumulus/ON-12/host2
+        src: /home/cumulus/ON-12/practice-02-host-2
         dest: /etc/network/interfaces
     # aktivieren
     - name: activate changes on Host2
@@ -38,7 +38,7 @@
   tasks:
     - name: IPv4 Address
       copy: 
-        src: /home/cumulus/ON-12/host3
+        src: /home/cumulus/ON-12/practice-02-host-3
         dest: /etc/network/interfaces
     # aktivieren
     - name: activate changes on Host3
@@ -53,7 +53,7 @@
   tasks:
     - name: IPv4 Address
       copy: 
-        src: /home/cumulus/ON-12/host4
+        src: /home/cumulus/ON-12/practice-02-host-4
         dest: /etc/network/interfaces
     # aktivieren
     - name: activate changes on Hos4
