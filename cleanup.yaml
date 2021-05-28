@@ -202,7 +202,7 @@
   tasks:
     - name: clean up
       copy:
-        src: /home/cumulus/ON-12/practice-02-spine4-frr
+        src: /home/cumulus/ON-12/practice-02-spine-4-frr
         dest: /etc/frr/frr.conf
       notify:
         - frr_reload
