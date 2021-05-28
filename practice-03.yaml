@@ -87,7 +87,7 @@
   tasks:
     - name: clean up
       copy:
-        src: /home/cumulus/ON-12/practice-03-leaf-1-frr
+        src: /home/cumulus/ON-12/cleanup-leaf-1-frr
         dest: /etc/frr/frr.conf
       notify:
         - frr_reload
@@ -125,7 +125,7 @@
   tasks:
     - name: clean up
       copy:
-        src: /home/cumulus/ON-12/practice-03-leaf-2-frr
+        src: /home/cumulus/ON-12/cleanup-03-leaf-2-frr
         dest: /etc/frr/frr.conf
       notify:
         - frr_reload
@@ -163,7 +163,7 @@
   tasks:
     - name: clean up
       copy:
-        src: /home/cumulus/ON-12/practice-03-spine-3-frr
+        src: /home/cumulus/ON-12/cleanup-spine-3-frr
         dest: /etc/frr/frr.conf
       notify:
         - frr_reload
@@ -202,7 +202,7 @@
   tasks:
     - name: clean up
       copy:
-        src: /home/cumulus/ON-12/practice-03-spine-4-frr
+        src: /home/cumulus/ON-12/cleanup-spine-4-frr
         dest: /etc/frr/frr.conf
       notify:
         - frr_reload
