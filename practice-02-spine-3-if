@@ -1,3 +1,9 @@
+auto bridge
+iface bridge
+        bridge-ports swp1 swp2
+        bridge-vids 1
+        bridge-vlan-aware yes
+
 auto mgmt
 iface mgmt
         vrf-table auto
