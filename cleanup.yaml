@@ -72,7 +72,7 @@
   tasks:
     - name: IF clean up
       copy: 
-        src: /home/cumulus/ON-12/practice-02-leaf-1-if
+        src: /home/cumulus/ON-12/cleanup-switches-if
         dest: /etc/network/interfaces
     # aktivieren
     - name: activate changes on Leaf1
@@ -110,7 +110,7 @@
   tasks:
     - name: IF clean up
       copy: 
-        src: /home/cumulus/ON-12/practice-02-leaf-2-if
+        src: /home/cumulus/ON-12/cleanup-switches-if
         dest: /etc/network/interfaces
     # aktivieren
     - name: activate changes on Leaf2
@@ -148,7 +148,7 @@
   tasks:
     - name: IF clean up
       copy: 
-        src: /home/cumulus/ON-12/practice-02-spine-3-if
+        src: /home/cumulus/ON-12/cleanup-switches-if
         dest: /etc/network/interfaces
     # aktivieren
     - name: activate changes on Spine3
@@ -187,7 +187,7 @@
   tasks:
     - name: IF clean up
       copy: 
-        src: /home/cumulus/ON-12/practice-02-spine-4-if
+        src: /home/cumulus/ON-12/cleanup-switches-if
         dest: /etc/network/interfaces
     # aktivieren
     - name: activate changes on Spine4
