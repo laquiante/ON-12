@@ -1,3 +1,12 @@
+auto lo
+iface lo inet loopback
+
+auto swp1
+iface swp1
+
+auto swp2
+iface swp2
+
 auto bridge
 iface bridge
         bridge-ports swp1 swp2
