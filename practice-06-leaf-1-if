@@ -1,0 +1,49 @@
+auto lo
+iface lo inet loopback
+        address 172.16.100.1/32
+
+auto swp1
+iface swp1
+
+auto swp2
+iface swp2
+
+auto swp8
+iface swp8
+        bridge-access 10
+
+auto swp9
+iface swp9
+        bridge-access 20
+
+auto VNI-10
+iface VNI-10
+        bridge-access 10
+        mstpctl-bpduguard yes
+        mstpctl-portbpdufilter yes
+        vxlan-id 10
+        vxlan-local-tunnelip 172.16.100.1
+
+auto VNI-20
+iface VNI-20
+        bridge-access 20
+        mstpctl-bpduguard yes
+        mstpctl-portbpdufilter yes
+        vxlan-id 20
+        vxlan-local-tunnelip 172.16.100.1
+
+auto bridge
+iface bridge
+        bridge-ports swp8 swp9 VNI-10 VNI-20
+        bridge-vids 10 20
+        bridge-vlan-aware yes
+
+auto mgmt
+iface mgmt
+        vrf-table auto
+        address 127.0.0.1/8
+
+auto eth0
+iface eth0 inet dhcp
+        vrf mgmt
+        post-up sysctl -w net.ipv6.conf.eth0.accept_ra=2
