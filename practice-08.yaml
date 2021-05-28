@@ -72,7 +72,7 @@
   tasks:
     - name: IF clean up
       copy: 
-        src: /home/cumulus/ON-12/practice-07-leaf-1-if
+        src: /home/cumulus/ON-12/practice-08-leaf-1-if
         dest: /etc/network/interfaces
     # aktivieren
     - name: activate changes on Leaf1
@@ -87,7 +87,7 @@
   tasks:
     - name: clean up
       copy:
-        src: /home/cumulus/ON-12/practice-07-leaf-1-frr
+        src: /home/cumulus/ON-12/practice-08-leaf-1-frr
         dest: /etc/frr/frr.conf
       notify:
         - frr_reload
@@ -110,7 +110,7 @@
   tasks:
     - name: IF clean up
       copy: 
-        src: /home/cumulus/ON-12/practice-07-leaf-2-if
+        src: /home/cumulus/ON-12/practice-08-leaf-2-if
         dest: /etc/network/interfaces
     # aktivieren
     - name: activate changes on Leaf2
@@ -125,7 +125,7 @@
   tasks:
     - name: clean up
       copy:
-        src: /home/cumulus/ON-12/practice-07-leaf-2-frr
+        src: /home/cumulus/ON-12/practice-08-leaf-2-frr
         dest: /etc/frr/frr.conf
       notify:
         - frr_reload
