@@ -148,7 +148,7 @@
   tasks:
     - name: IF clean up
       copy: 
-        src: /home/cumulus/ON-12/practice-07-spine-3-if
+        src: /home/cumulus/ON-12/practice-06-spine-3-if
         dest: /etc/network/interfaces
     # aktivieren
     - name: activate changes on Spine3
@@ -163,7 +163,7 @@
   tasks:
     - name: clean up
       copy:
-        src: /home/cumulus/ON-12/practice-07-spine-3-frr
+        src: /home/cumulus/ON-12/practice-06-spine-3-frr
         dest: /etc/frr/frr.conf
       notify:
         - frr_reload
@@ -187,7 +187,7 @@
   tasks:
     - name: IF clean up
       copy: 
-        src: /home/cumulus/ON-12/practice-07-spine-4-if
+        src: /home/cumulus/ON-12/practice-06-spine-4-if
         dest: /etc/network/interfaces
     # aktivieren
     - name: activate changes on Spine4
@@ -202,7 +202,7 @@
   tasks:
     - name: clean up
       copy:
-        src: /home/cumulus/ON-12/practice-07-spine-4-frr
+        src: /home/cumulus/ON-12/practice-06-spine-4-frr
         dest: /etc/frr/frr.conf
       notify:
         - frr_reload
