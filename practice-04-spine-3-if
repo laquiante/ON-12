@@ -1,0 +1,63 @@
+auto swp1
+iface swp1
+
+auto swp2
+iface swp2
+
+auto swp3
+iface swp3
+
+auto swp4
+iface swp4
+
+auto LEAF1
+iface LEAF1
+        bond-slaves swp1
+        clag-id 1
+
+auto LEAF2
+iface LEAF2
+        bond-slaves swp2
+        clag-id 2
+
+auto bridge
+iface bridge
+        bridge-ports peerlink LEAF1 LEAF2
+        bridge-vids 2-3
+        bridge-vlan-aware yes
+        mstpctl-treeprio 4096
+
+auto mgmt
+iface mgmt
+        vrf-table auto
+        address 127.0.0.1/8
+
+auto eth0
+iface eth0 inet dhcp
+        vrf mgmt
+        post-up sysctl -w net.ipv6.conf.eth0.accept_ra=2
+
+auto peerlink
+iface peerlink
+        bond-slaves swp3 swp4
+
+auto peerlink.4094
+iface peerlink.4094
+        clagd-backup-ip 192.168.200.6 vrf mgmt
+        clagd-peer-ip linklocal
+        clagd-priority 1000
+        clagd-sys-mac 44:38:39:ff:00:01
+
+auto vlan2
+iface vlan2
+        address 172.16.2.252/24
+        address-virtual 00:00:5e:00:01:02 172.16.2.254/24
+        vlan-id 2
+        vlan-raw-device bridge
+
+auto vlan3
+iface vlan3
+        address 172.16.3.252/24
+        address-virtual 00:00:5e:00:01:03 172.16.3.254/24
+        vlan-id 3
+        vlan-raw-device bridge
