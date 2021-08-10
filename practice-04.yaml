@@ -1,7 +1,7 @@
 # Host e/n/i Datei
 
 - hosts: host1
-  name: host1 Interfaces
+  name: host1 Interfaces changed
   become: yes
   gather_facts: no
   tasks:
