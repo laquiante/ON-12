@@ -1,0 +1,17 @@
+---
+- hosts: leaf1,leaf2,spine3,spine4 
+  become: yes
+  tasks:
+    - name: Restore Interface Configuration
+      copy: src=save/{{ansible_hostname}}/interfaces dest=/etc/network/
+    - name: Restore FRR daemons file
+      copy: src=save/{{ansible_hostname}}/daemons dest=/etc/frr/daemons
+    - name: Restore frr.conf
+      copy: src=save/{{ansible_hostname}}/frr.conf dest=/etc/frr/frr.conf
+
+    - name: reload switchd
+      service: name=switchd state=restarted
+    - name: reload networking
+      command: /sbin/ifreload -a
+    - name: restart frr
+      service: name=frr state=restart
