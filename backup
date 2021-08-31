@@ -1,0 +1,12 @@
+---
+- hosts: leaf1,leaf2,spine3,spine4
+  become: yes
+  tasks:
+    - name: Fetch interfaces Configuration
+      fetch: dest=save/{{ansible_hostname}}/interfaces src=/etc/network/interfaces flat=yes
+
+    - name: Fetch FRR daemons file
+      fetch: dest=save/{{ansible_hostname}}/daemons src=/etc/frr/daemons flat=yes
+
+    - name: Fetch frr.conf
+      fetch: dest=save/{{ansible_hostname}}/frr.conf src=/etc/frr/frr.conf flat=yes
