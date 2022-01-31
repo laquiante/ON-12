@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 ###################
@@ -16,8 +17,6 @@ fi
 
 chown -R cumulus:cumulus /var/lib/cumulus/ztp/test.txt
 echo "Cumulus Linux Boot Camp 2022"  | tee -a /var/lib/cumulus/ztp/test.txt
-
-#CUMULUS-AUTOPROVISIONING
 
 exit 0
 
