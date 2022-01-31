@@ -18,3 +18,11 @@
 
     - name: run ZTP manually
       shell: ztp --run /var/lib/cumulus/ztp/cumulus-ztp
+      
+    - name: verify ZTP
+      shell: ztp -s
+      register: ztps
+      
+    - name: print msg
+      debug: msg={{ ztps }}
+      
