@@ -3,7 +3,7 @@
 ###################
 
 #!/bin/bash
-#CUMULUS-AUTOPROVISIONING
+
 touch /var/lib/cumulus/ztp/test.txt
 exit 0
 
