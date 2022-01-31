@@ -18,5 +18,5 @@ fi
 chown -R cumulus:cumulus /var/lib/cumulus/ztp/test.txt
 echo "Cumulus Linux Boot Camp 2022"  | tee -a /var/lib/cumulus/ztp/test.txt
 
-exit 0
+exit 1
 
