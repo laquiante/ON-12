@@ -10,7 +10,7 @@
 
     - name: ZTP troubleshooting
       copy:
-        src: /home/cumulus/ON-12/ztp-mr-l.sh
+        src: /home/cumulus/ON-12/ztp.sh
         dest: /var/lib/cumulus/ztp/cumulus-ztp
         mode: '0644'
         owner: 'root'
