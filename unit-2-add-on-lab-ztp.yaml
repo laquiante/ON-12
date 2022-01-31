@@ -1,0 +1,23 @@
+- hosts: leaf1
+  name: copy ztp
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: prepare
+      file:
+        state: absent
+        path: /var/lib/cumulus/ztp/test.txt
+    - name: ZTP troubleshooting
+      copy:
+        src: /home/cumulus/ON-12/ztp-mr-l.sh
+        dest: /var/lib/cumulus/ztp/cumulus-ztp
+        mode: '0644'
+        owner: 'root'
+        group: 'root'
+     - name: verification
+       stat:
+         path: /var/lib/cumulus/ztp/test.txt
+       register: stat_result
+       
+       debug msg = {{ stat_result }} 
+       when: not stat_result.stat.exists
