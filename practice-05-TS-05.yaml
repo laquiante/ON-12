@@ -12,6 +12,12 @@
   gather_facts: no
   tasks:
     - name: TS-05
-      shell: arp -s 169.254.0.1 44:39:39:00:00:14
+      shell: ip neigh change 169.254.0.1 lladdr 44:38:38:00:00:05 dev swp1 nud permanen
+      shell: ip neigh change 169.254.0.1 lladdr 44:38:38:00:00:0b dev swp2 nud permanen
+      shell: ip neigh change fe80::4638:39ff:fe00:5 lladdr 44:38:38:00:00:05 dev swp1 nud permanent
+      shell: ip neigh change fe80::4638:39ff:fe00:b lladdr 44:38:38:00:00:0b dev swp2 nud permanent
+
+
+
 
 # 44:38:39:00:00:05
