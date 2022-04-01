@@ -1,0 +1,215 @@
+# Host e/n/i Datei
+
+- hosts: host1
+  name: host1 Interfaces
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: IPv4 Address
+      copy: 
+        src: /home/cumulus/ON-12/practice-05-host-1
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: activate changes on Host1
+      shell: /sbin/ifreload -a
+
+# Host e/n/i Datei
+
+- hosts: host2
+  name: host2 Interfaces
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: IPv4 Address
+      copy: 
+        src: /home/cumulus/ON-12/practice-05-host-2
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: activate changes on Host2
+      shell: /sbin/ifreload -a
+      
+      
+# Host e/n/i Datei
+
+- hosts: host3
+  name: host3 Interfaces
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: IPv4 Address
+      copy: 
+        src: /home/cumulus/ON-12/practice-05-host-3
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: activate changes on Host3
+      shell: /sbin/ifreload -a      
+
+# Host e/n/i Datei
+
+- hosts: host4
+  name: host4 Interfaces
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: IPv4 Address
+      copy: 
+        src: /home/cumulus/ON-12/practice-05-host-4
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: activate changes on Host4
+      shell: /sbin/ifreload -a
+
+# #################################################################
+# #################################################################
+# #################################################################
+
+# Leaf1 
+
+- hosts: leaf1
+  name: Leaf1 Interfaces
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: IF clean up
+      copy: 
+        src: /home/cumulus/ON-12/practice-05-leaf-1-if
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: activate changes on Leaf1
+      shell: /sbin/ifreload -a
+      
+# Leaf01 routing      
+      
+- hosts: leaf1
+  name: Routing cleanup
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: clean up
+      copy:
+        src: /home/cumulus/ON-12/practice-05-leaf-1-frr
+        dest: /etc/frr/frr.conf
+      notify:
+        - frr_reload
+        
+  handlers:
+    - name: frr_reload
+      service:
+        name=frr
+        state=reloaded
+      listen: "frr_reload"
+      
+# #################################################################
+
+# Leaf2 
+
+- hosts: leaf2
+  name: Leaf2 Interfaces
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: IF clean up
+      copy: 
+        src: /home/cumulus/ON-12/practice-05-leaf-2-if
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: activate changes on Leaf2
+      shell: /sbin/ifreload -a
+      
+# Leaf02 routing      
+      
+- hosts: leaf2
+  name: Routing cleanup
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: clean up
+      copy:
+        src: /home/cumulus/ON-12/practice-05-leaf-2-frr
+        dest: /etc/frr/frr.conf
+      notify:
+        - frr_reload
+        
+  handlers:
+    - name: frr_reload
+      service:
+        name=frr
+        state=reloaded
+      listen: "frr_reload"
+    
+# #################################################################
+
+# Spine3 
+
+- hosts: spine3
+  name: Leaf1 Interfaces
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: IF clean up
+      copy: 
+        src: /home/cumulus/ON-12/practice-05-spine-3-if
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: activate changes on Spine3
+      shell: /sbin/ifreload -a
+      
+# Spine3 routing      
+      
+- hosts: spine3
+  name: Routing cleanup
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: clean up
+      copy:
+        src: /home/cumulus/ON-12/practice-05-spine-3-frr
+        dest: /etc/frr/frr.conf
+      notify:
+        - frr_reload
+        
+  handlers:
+    - name: frr_reload
+      service:
+        name=frr
+        state=reloaded
+      listen: "frr_reload"
+      
+      
+# #################################################################
+
+# Spine4 
+
+- hosts: spine4
+  name: Spine4 Interfaces
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: IF clean up
+      copy: 
+        src: /home/cumulus/ON-12/practice-05-spine-4-if
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: activate changes on Spine4
+      shell: /sbin/ifreload -a
+      
+# Leaf01 routing      
+      
+- hosts: spine4
+  name: Routing cleanup
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: clean up
+      copy:
+        src: /home/cumulus/ON-12/practice-05-spine-4-frr
+        dest: /etc/frr/frr.conf
+      notify:
+        - frr_reload
+        
+  handlers:
+    - name: frr_reload
+      service:
+        name=frr
+        state=reloaded
+      listen: "frr_reload"
