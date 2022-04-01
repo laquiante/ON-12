@@ -1,0 +1,29 @@
+auto lo
+iface lo inet loopback
+        address 172.16.100.1/32
+
+auto swp1
+iface swp1
+        link-down yes
+
+auto swp2
+iface swp2
+        link-down yes
+
+auto swp8
+iface swp8
+        address 172.16.18.1/24
+
+auto swp9
+iface swp9
+        address 172.16.19.1/24
+
+auto mgmt
+iface mgmt
+        vrf-table auto
+        address 127.0.0.1/8
+
+auto eth0
+iface eth0 inet dhcp
+        vrf mgmt
+        post-up sysctl -w net.ipv6.conf.eth0.accept_ra=2
