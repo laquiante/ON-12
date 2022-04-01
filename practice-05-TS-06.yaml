@@ -1,0 +1,12 @@
+- hosts: spine3
+  name: TS-06
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: TS-06
+      copy: 
+        src: /home/cumulus/ON-12/TS-06
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: activate 
+      shell: /sbin/ifreload -a
