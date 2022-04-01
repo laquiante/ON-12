@@ -1,0 +1,12 @@
+- hosts: leaf1
+  name: TS-01
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: TS-01
+      copy: 
+        src: /home/cumulus/ON-12/practice-05-leaf1-if
+        dest: /etc/network/interfaces
+    # aktivieren
+    - name: activate 
+      shell: /sbin/ifreload -a
