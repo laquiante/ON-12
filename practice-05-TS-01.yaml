@@ -5,7 +5,7 @@
   tasks:
     - name: TS-01
       copy: 
-        src: /home/cumulus/ON-12/practice-05-leaf1-if
+        src: /home/cumulus/ON-12/TS-01
         dest: /etc/network/interfaces
     # aktivieren
     - name: activate 
