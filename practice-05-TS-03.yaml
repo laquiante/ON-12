@@ -1,16 +1,25 @@
-- hosts: spine
+- hosts: spine3
   name: TS-03
   become: yes
   gather_facts: no
   tasks:
     - name: TS-03
       copy: 
-        src: /home/cumulus/ON-12/TS-03
-        dest: /etc/network/interfaces
+        src: /home/cumulus/ON-12/TS-03-1
+        dest: /etc/frr/frr.conf      
     # aktivieren
     - name: activate 
-      shell: /sbin/ifreload -a
-      
+      shell: systemctl restart frr
+
+- hosts: spine4
+  name: TS-03
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: TS-03
+      copy: 
+        src: /home/cumulus/ON-12/TS-03-2
+        dest: /etc/frr/frr.conf      
     # aktivieren
     - name: activate 
       shell: systemctl restart frr
