@@ -21,3 +21,13 @@
 
 
 # 44:38:39:00:00:05
+# 44:38:39:00:00:0b
+
+# 192.168.200.2 dev eth0 lladdr 44:38:39:00:00:19 STALE
+# 169.254.0.1 dev swp1 lladdr 44:38:39:00:00:05 PERMANENT proto zebra
+# 192.168.200.250 dev eth0  INCOMPLETE
+# 169.254.0.1 dev swp2 lladdr 44:38:39:00:00:0b PERMANENT proto zebra
+# 192.168.200.1 dev eth0 lladdr 44:38:39:00:00:1a REACHABLE
+# fe80::4638:39ff:fe00:5 dev swp1 lladdr 44:38:39:00:00:05 router REACHABLE
+# fe80::4638:39ff:fe00:19 dev eth0 lladdr 44:38:39:00:00:19 router STALE
+# fe80::4638:39ff:fe00:b dev swp2 lladdr 44:38:39:00:00:0b router REACHABLE
