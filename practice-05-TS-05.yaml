@@ -5,5 +5,13 @@
   tasks:
     - name: TS-05
       shell: arp -s 172.16.19.1 44:39:39:00:00:14
+      
+- hosts: leaf1
+  name: TS-05
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: TS-05
+      shell: arp -s 169.254.0.1 44:39:39:00:00:14
 
 # 44:38:39:00:00:05
