@@ -19,7 +19,7 @@
       shell: netplan apply
        
     - name: Check interface 2
-      shell: /sbin/ip -br -4 a | grep 'bond'
+      shell: /sbin/ip -br -4 a | grep 'eth2'
       ignore_errors: yes
       register: result
     - debug: msg={{ result.stdout }}
