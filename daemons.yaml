@@ -1,0 +1,27 @@
+# Einspielen der Routing Daemon
+# und "restart" von FRR
+# schnell für den 10.10.2022
+
+- hosts: leaf1 leaf2 spine3 spine4
+  name: Configure /etc/frr/daemon
+  become: yes
+  tasks:
+    - copy:
+        src: /home/cumulus/ON-12/daemons
+        dest: /etc/frr/daemons
+      notify:
+        - frr_restart
+        
+  handlers:
+    - name: frr_restart
+      service:
+        name=frr
+        state=restarted
+      listen: "frr_restart"
+       
+  handlers:
+    - name: frr_restart
+      service:
+        name=frr
+        state=restarted
+      listen: "frr_restart"
