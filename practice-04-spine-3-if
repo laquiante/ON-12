@@ -43,7 +43,7 @@ iface peerlink
 
 auto peerlink.4094
 iface peerlink.4094
-        clagd-backup-ip 192.168.200.6 vrf mgmt
+        clagd-backup-ip 192.168.200.5 vrf mgmt
         clagd-peer-ip linklocal
         clagd-priority 1000
         clagd-sys-mac 44:38:39:ff:00:01
